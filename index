@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Angel ✨ | Happy Birthday</title>
+<style>
+:root {
+  --bg: #0b0918;
+  --pink: #ffb8dc;
+  --lilac: #c8b7ff;
+  --gold: #ffe3a6;
+  --text: #fff8ff;
+  --muted: #d8cfe8;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--text);
+  font-family: Georgia, serif;
+  background:
+    radial-gradient(ellipse at 20% 0%, #30204c, transparent 40%),
+    radial-gradient(ellipse at 90% 40%, #281936, transparent 35%),
+    var(--bg);
+  overflow-x: hidden;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: .25;
+  background-image:
+    radial-gradient(2px 2px at 20px 30px, white, transparent),
+    radial-gradient(2px 2px at 100px 120px, #ffe3a6, transparent),
+    radial-gradient(1px 1px at 180px 50px, white, transparent);
+  background-size: 230px 200px;
+}
+button { font: inherit; cursor: pointer; }
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 60px 20px;
+  position: relative;
+}
+.hero-inner { max-width: 850px; animation: rise 1.3s ease; }
+.eyebrow {
+  color: var(--gold);
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  font: 11px Arial, sans-serif;
+}
+h1 {
+  font-size: clamp(3.5rem, 12vw, 8rem);
+  font-weight: 400;
+  line-height: .95;
+  margin: 25px 0;
+  background: linear-gradient(120deg, white, var(--pink), var(--gold));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.subtitle {
+  color: var(--muted);
+  line-height: 1.9;
+  font-size: clamp(1.05rem, 3vw, 1.4rem);
+  max-width: 620px;
+  margin: 25px auto;
+}
+.btn {
+  border: 1px solid #ffb8dc88;
+  background: linear-gradient(120deg, #ffb8dc22, #c8b7ff22);
+  color: white;
+  padding: 14px 23px;
+  border-radius: 999px;
+  transition: .25s;
+  margin: 5px;
+}
+.btn:hover { transform: translateY(-3px); border-color: var(--pink); }
+.content { max-width: 1050px; margin: auto; padding: 80px 22px; }
+.kicker {
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: .3em;
+  color: var(--gold);
+  font: 11px Arial, sans-serif;
+}
+h2 {
+  text-align: center;
+  font-weight: 400;
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  margin: 18px 0 25px;
+}
+.intro {
+  max-width: 760px;
+  margin: auto;
+  text-align: center;
+  color: var(--muted);
+  line-height: 2;
+}
+.glass {
+  background: #ffffff0d;
+  border: 1px solid #ffffff20;
+  border-radius: 25px;
+  backdrop-filter: blur(14px);
+  box-shadow: 0 20px 70px #0002;
+}
+.letter {
+  max-width: 790px;
+  margin: 35px auto 0;
+  padding: clamp(25px, 5vw, 55px);
+  line-height: 2;
+  font-size: 1.1rem;
+  color: #f6eefa;
+}
+.dear { font-size: 1.7rem; color: var(--pink); font-style: italic; }
+.signature { color: var(--gold); font-style: italic; font-size: 1.3rem; }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 35px;
+}
+.memory {
+  min-height: 210px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  transition: .3s;
+}
+.memory:hover { transform: translateY(-5px); }
+.emoji { font-size: 2rem; }
+.memory h3 { font-weight: 400; font-size: 1.4rem; }
+.memory p { color: var(--muted); line-height: 1.7; }
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 35px 0;
+}
+.timebox { min-width: 85px; padding: 20px 12px; text-align: center; }
+.timebox strong { display: block; color: var(--pink); font-size: 2rem; font-weight: 400; }
+.timebox span {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+  font: 10px Arial, sans-serif;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+.secret-wrap { max-width: 700px; margin: 35px auto 0; padding: 30px; text-align: center; }
+.secret-wrap p { color: var(--muted); line-height: 1.8; }
+.secret-form { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin: 22px 0; }
+.secret-form input {
+  min-width: 190px;
+  max-width: 100%;
+  padding: 13px 17px;
+  border: 1px solid #ffffff2b;
+  border-radius: 999px;
+  background: #100d25;
+  color: white;
+}
+.hidden-message, .gift-message {
+  display: none;
+  margin: 24px auto 0;
+  padding: 25px;
+  border-radius: 18px;
+  background: #ffb8dc12;
+  border: 1px solid #ffb8dc45;
+  line-height: 1.9;
+  color: #fff0fa;
+}
+.gift-area { text-align: center; margin-top: 35px; }
+.gift {
+  width: 120px;
+  height: 100px;
+  margin: 30px auto;
+  position: relative;
+  cursor: pointer;
+  transition: .35s;
+}
+.gift:hover { transform: translateY(-7px) rotate(-2deg); }
+.gift-box {
+  position: absolute;
+  bottom: 0;
+  left: 10px;
+  width: 100px;
+  height: 72px;
+  border-radius: 7px;
+  background: linear-gradient(120deg, #f7a8d1, #b49aff);
+}
+.gift-lid {
+  position: absolute;
+  top: 20px;
+  left: 4px;
+  width: 112px;
+  height: 24px;
+  border-radius: 6px;
+  background: linear-gradient(120deg, #ffe1a8, #f5a7d0);
+  z-index: 2;
+}
+.gift-ribbon {
+  position: absolute;
+  top: 20px;
+  left: 51px;
+  width: 18px;
+  height: 72px;
+  background: #fff2d2;
+  z-index: 3;
+}
+.gift-bow {
+  position: absolute;
+  top: 0;
+  left: 37px;
+  width: 27px;
+  height: 22px;
+  border: 7px solid var(--gold);
+  border-radius: 100% 0 100% 0;
+  transform: rotate(25deg);
+  z-index: 4;
+}
+.gift-bow::after {
+  content: "";
+  position: absolute;
+  width: 27px;
+  height: 22px;
+  border: 7px solid var(--gold);
+  border-radius: 0 100% 0 100%;
+  left: 12px;
+  top: -7px;
+  transform: rotate(-55deg);
+}
+footer {
+  text-align: center;
+  padding: 45px 20px 60px;
+  color: #c7bad7a8;
+  font: 11px Arial, sans-serif;
+  letter-spacing: .13em;
+}
+.heart {
+  position: fixed;
+  bottom: -30px;
+  z-index: 5;
+  pointer-events: none;
+  animation: floatUp linear forwards;
+}
+@keyframes rise {
+  from { opacity: 0; transform: translateY(22px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes floatUp {
+  to { transform: translateY(-110vh) rotate(30deg); opacity: 0; }
+}
+@media(max-width:700px) {
+  .grid { grid-template-columns: 1fr; }
+  .memory { min-height: 175px; }
+  .timebox { min-width: 72px; }
+  .timebox strong { font-size: 1.65rem; }
+  .content { padding: 65px 18px; }
+}
+</style>
+</head>
+<body>
+
+<header class="hero" id="home">
+  <div class="hero-inner">
+    <div class="eyebrow">A little universe made for you</div>
+    <h1>My Angel</h1>
+    <p class="subtitle">
+      Today, the stars shine a little brighter —
+      because the world was lucky enough to have you in it. ✨
+    </p>
+    <button class="btn" onclick="document.querySelector('#letter').scrollIntoView({behavior:'smooth'})">
+      Open your letter ♡
+    </button>
+    <button class="btn" onclick="makeHearts(28)">Send you some love ✧</button>
+  </div>
+</header>
+
+<section class="content" id="letter">
+  <div class="kicker">A letter from my heart</div>
+  <h2>For my favorite person</h2>
+  <div class="letter glass">
+    <div class="dear">My Angel,</div>
+    Happy Birthday to the sweetest soul in my little universe. ♡<br><br>
+
+    If I could give you one thing today, it would be the chance to see
+    yourself through my eyes — so you could understand how precious,
+    beautiful, and irreplaceable you are. You make ordinary moments feel
+    special, and even the smallest things remind me how lucky I am that you exist.
+    <br><br>
+
+    I hope this new chapter brings you gentle mornings, loud laughter,
+    peaceful nights, beautiful surprises, and every little dream your heart
+    has been holding onto. When life feels heavy, I hope you remember that
+    you deserve patience, kindness, and a love that makes you feel safe.
+    Never forget how much light you carry inside you.
+    <br><br>
+    <footer>MADE WITH LOVE, JUST FOR YOU · OCTOBER 31 ♡</footer>
+
+<script>
+function makeHearts(count = 12) {
+  const symbols = ['♡', '♥', '✧', '💗', '✨'];
+  for (let i = 0; i < count; i++) {
+    const heart = document.createElement('span');
+    heart.className = 'heart';
+    heart.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.fontSize = (14 + Math.random() * 22) + 'px';
+    heart.style.color = ['#ffb8dc', '#c8b7ff', '#ffe3a6'][Math.floor(Math.random() * 3)];
+    heart.style.animationDuration = (5 + Math.random() * 5) + 's';
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 10500);
+  }
+}
+
+function updateCountdown() {
+  const now = new Date();
+  let target = new Date(now.getFullYear(), 9, 31, 0, 0, 0);
+
+  if (now >= target) {
+    target = new Date(now.getFullYear() + 1, 9, 31, 0, 0, 0);
+  }
+
+  const diff = target - now;
+  document.getElementById('days').textContent = Math.floor(diff / 86400000);
+  document.getElementById('hours').textContent = Math.floor(diff % 86400000 / 3600000);
+  document.getElementById('minutes').textContent = Math.floor(diff % 3600000 / 60000);
+  document.getElementById('seconds').textContent = Math.floor(diff % 60000 / 1000);
+  document.getElementById('countdown-note').textContent =
+    'Counting down to October 31, ' + target.getFullYear() + ' ♡';
+}
+
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
+function unlockSecret(event) {
+  event.preventDefault();
+  const word = document.getElementById('secret-word').value.trim().toLowerCase();
+  const message = document.getElementById('secret-message');
+  const hint = document.getElementById('secret-hint');
+
+  if (['angel', 'my angel', 'angelica', 'love'].includes(word)) {
+    message.style.display = 'block';
+    hint.textContent = 'You found it! Sending you the biggest hug. ♡';
+    makeHearts(18);
+  } else {
+    hint.textContent = 'Not quite, sweetheart. Try “angel” or “love” ♡';
+    message.style.display = 'none';
+  }
+}
+
+function openGift() {
+  const message = document.getElementById('gift-message');
+  message.style.display = message.style.display === 'block' ? 'none' : 'block';
+  if (message.style.display === 'block') makeHearts(20);
+}
+
+setTimeout(() => makeHearts(10), 1400);
+</script>
+</body>
+</html>
